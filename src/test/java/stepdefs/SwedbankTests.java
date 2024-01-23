@@ -24,6 +24,7 @@ public class SwedbankTests {
 
         CalculatorPage calculatorPage = new CalculatorPage(baseFunc);
         calculatorPage.selectSalaryCalculator();
+        baseFunc.switchToTab();
         calculatorPage.fillInBrutoSalary("1500");
         calculatorPage.getNetoSalary();
 

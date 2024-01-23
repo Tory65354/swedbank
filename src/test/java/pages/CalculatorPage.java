@@ -22,8 +22,10 @@ public class CalculatorPage {
         baseFunc.click(SALARY_CALCULATOR);
     }
 
+
+
    public void fillInBrutoSalary(String salary) {
-        WebDriverWait wait = new WebDriverWait(baseFunc.getBrowser(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(baseFunc.getBrowser(), Duration.ofSeconds(20));
        wait.until(ExpectedConditions.elementToBeClickable(BRUTO_SALARY));
         baseFunc.type(BRUTO_SALARY,salary);}
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BaseFunc {
@@ -60,6 +61,15 @@ public class BaseFunc {
         inputField.clear();
         inputField.sendKeys(text);
     }
+
+    public void switchToTab() {
+        ArrayList<String> tabs = new ArrayList<>(browser.getWindowHandles());
+        browser.switchTo().window(tabs.get(1));
+        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlContains("https://blog.swedbank.lv/riki-kalkulatori/darba-algas-kalkulators"));
+    }
+
+
 
 
 
