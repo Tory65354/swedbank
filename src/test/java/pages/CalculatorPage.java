@@ -2,6 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CalculatorPage {
     private final By SALARY_CALCULATOR = By.xpath(".//a[@rel = 'noreferrer noopener']");
@@ -18,9 +22,10 @@ public class CalculatorPage {
         baseFunc.click(SALARY_CALCULATOR);
     }
 
-    public void selectBrutoSalary() {
-        baseFunc.selectByText(BRUTO_SALARY, "1500");
-    }
+   public void fillInBrutoSalary(String salary) {
+        WebDriverWait wait = new WebDriverWait(baseFunc.getBrowser(), Duration.ofSeconds(10));
+       wait.until(ExpectedConditions.elementToBeClickable(BRUTO_SALARY));
+        baseFunc.type(BRUTO_SALARY,salary);}
 
     public double getNetoSalary () {
         WebElement netoSalaryElement = baseFunc.findElement(NETO_SALARY_2024);

@@ -44,12 +44,21 @@ public class BaseFunc {
     }
 
     public void selectByText (By locator, String text) {
+        WebElement element = findElement(locator);
+        wait.until(ExpectedConditions.visibilityOf(element));
         Select select = new Select(findElement(locator));
         select.selectByVisibleText(text);
     }
 
     public WebDriver getBrowser() {
         return browser;
+    }
+
+    public void type (By locator, String text) {
+        WebElement inputField = findElement(locator);
+        inputField.click();
+        inputField.clear();
+        inputField.sendKeys(text);
     }
 
 
