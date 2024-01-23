@@ -18,11 +18,11 @@ public class HomePage {
 
     public void clickAcceptCookie() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(baseFunc.getBrowser(), Duration.ofSeconds(40));
-        wait.until(ExpectedConditions.and(
-                ExpectedConditions.invisibilityOfElementLocated(ACCEPT_COOKIE_BTN),
-                ExpectedConditions.elementToBeClickable(ACCEPT_COOKIE_BTN)));
+        wait.until(ExpectedConditions.elementToBeClickable(ACCEPT_COOKIE_BTN));
+                        //ExpectedConditions.invisibilityOfElementLocated(ACCEPT_COOKIE_BTN),
+                //ExpectedConditions.elementToBeClickable(ACCEPT_COOKIE_BTN)));
         baseFunc.click(ACCEPT_COOKIE_BTN);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
 
