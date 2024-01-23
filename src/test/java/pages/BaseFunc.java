@@ -57,7 +57,6 @@ public class BaseFunc {
 
     public void type (By locator, String text) {
         WebElement inputField = findElement(locator);
-        inputField.click();
         inputField.clear();
         inputField.sendKeys(text);
     }
@@ -67,6 +66,11 @@ public class BaseFunc {
         browser.switchTo().window(tabs.get(1));
         WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains("https://blog.swedbank.lv/riki-kalkulatori/darba-algas-kalkulators"));
+    }
+
+    public void switchToFrame (By frameLocator){
+        WebElement frame = findElement(frameLocator);
+        browser.switchTo().frame(frame);
     }
 
 
